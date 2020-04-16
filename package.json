@@ -1,0 +1,22 @@
+{
+  "name": "marco-api",
+  "version": "1.0.0",
+  "description": "Marco API",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polysharp/marco-api.git"
+  },
+  "keywords": [
+    "MarcoAPI"
+  ],
+  "author": "Polysharp <polysharp.git@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/polysharp/marco-api/issues"
+  },
+  "homepage": "https://github.com/polysharp/marco-api#readme"
+}
