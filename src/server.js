@@ -1,7 +1,7 @@
-#!/usr/bin/env node
 const http = require('http');
 
-const app = require('../src/app');
+const CONFIG = require('./config');
+const app = require('./app');
 
 http
 	.createServer(app)
@@ -9,4 +9,4 @@ http
 		console.error({ err }, 'The HTTP server threw an error. Exiting.');
 		process.exit(1);
 	})
-	.listen(8080, () => console.log('Server running.'));
+	.listen(CONFIG.PORT, () => console.log('Server running.'));
