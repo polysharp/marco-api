@@ -18,6 +18,7 @@ const db = {
             return error;
           }
           console.log(`Connected to ${DB_NAME} db.`);
+          return null;
         }
       );
     } catch (error) {
