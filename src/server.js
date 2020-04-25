@@ -9,4 +9,6 @@ http
     console.error({ err }, 'The HTTP server threw an error. Exiting.');
     process.exit(1);
   })
-  .listen(CONFIG.PORT, () => console.log('Server running.'));
+  .listen(CONFIG.PORT, CONFIG.HOST, () =>
+    console.log(`Server running at http://${CONFIG.HOST}:${CONFIG.PORT}`)
+  );
