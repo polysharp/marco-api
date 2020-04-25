@@ -13,4 +13,4 @@ module.exports.REGEX = Object.freeze({
 });
 
 module.exports.API_GOUV_URL =
-  'https://geo.api.gouv.fr/communes?fields=nom,codesPostaux,departement&format=json&geometry=centre';
+  'https://geo.api.gouv.fr/communes?fields=nom,codesPostaux&format=geojson&geometry=centre';
