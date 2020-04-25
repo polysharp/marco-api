@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { DB_CONNECTION_STRING } = require('../config');
+const { DB_CONNECTION_STRING, DB_NAME } = require('../config');
 
 const db = {
   connect: async () => {
@@ -10,14 +10,14 @@ const db = {
           useUnifiedTopology: true,
           useNewUrlParser: true,
           useCreateIndex: true,
-          dbName: 'marco'
+          dbName: DB_NAME
         },
         error => {
           if (error) {
             console.error(error);
             return error;
           }
-          console.log('Connected to db.');
+          console.log(`Connected to ${DB_NAME} db.`);
         }
       );
     } catch (error) {
