@@ -7,11 +7,19 @@ const register = async (req, res) => {
   try {
     const { error } = joiUserSchema.validate(req.body, { abortEarly: false });
 
-    if (error) return res.set(HTTP_CODE.BAD_REQUEST).json({ error });
+    if (error)
+      return res.set(HTTP_CODE.BAD_REQUEST).json({
+        error
+      });
 
-    const userExists = await User.findOne({ email: req.body.email });
+    const userExists = await User.findOne({
+      email: req.body.email
+    });
 
-    if (userExists) return res.set(HTTP_CODE.BAD_REQUEST).json({ message: 'Email already used.' });
+    if (userExists)
+      return res.set(HTTP_CODE.BAD_REQUEST).json({
+        message: 'Email already used.'
+      });
 
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(req.body.password, salt);
@@ -25,7 +33,9 @@ const register = async (req, res) => {
     await user.save();
     const token = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET);
 
-    return res.set(HTTP_CODE.CREATED).json({ auth: token });
+    return res.set(HTTP_CODE.CREATED).json({
+      auth: token
+    });
   } catch (error) {
     return res.sendStatus(HTTP_CODE.INTERNAL_SERVER_ERROR);
   }
