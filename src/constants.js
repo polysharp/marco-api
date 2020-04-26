@@ -14,3 +14,6 @@ module.exports.REGEX = Object.freeze({
 
 module.exports.API_GOUV_URL =
   'https://geo.api.gouv.fr/communes?fields=nom,codesPostaux&format=geojson&geometry=centre';
+
+module.exports.API_GOUV_URL_POLYGON =
+  'https://geo.api.gouv.fr/communes?fields=nom,codesPostaux&format=geojson&geometry=contour';
