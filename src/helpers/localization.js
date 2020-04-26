@@ -9,6 +9,12 @@ const computeCities = async collection =>
       : null
   );
 
+const computePolygone = async collection =>
+  collection.features[0]
+    ? collection.features[0].geometry.coordinates[0].map(arr => arr.reverse())
+    : null;
+
 module.exports = {
-  computeCities
+  computeCities,
+  computePolygone
 };
