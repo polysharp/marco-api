@@ -22,7 +22,8 @@ const searchCities = async (req, res) => {
     const { data } = await axios.get(query);
     if (data.length === 0) return res.sendStatus(HTTP_CODE.NOT_FOUND);
 
-    const result = await localization.computeCities(data);
+    const computedCities = await localization.computeCities(data);
+    const result = computedCities.filter(city => city !== null);
     return res.status(200).json(result);
   } catch (error) {
     console.log(error);
